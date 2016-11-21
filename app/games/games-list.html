@@ -1,0 +1,31 @@
+<div class="input-group col-lg-2 col-sm-12 col-xs-12 col-md-12 ">
+    <input type="text" class="form-control" id="Filter" [(ngModel)]='listFilter' placeholder="Filter (by name)">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Filter</button>
+     </span>
+</div>
+
+<div *ngIf='games && games.length'>
+    <div class="col-sm-12 col-md-6 col-xs-12 col-lg-4 padd" *ngFor='let game of games'>
+        <div class="media panel panel-primary well-lg">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" [src]='game.image' [title]='game.gameTitle | uppercase' alt="Generic placeholder image">
+                </a>
+            </div>
+            <div class="media-body ">
+                <h4 class="media-heading">
+                    <p class="pull-left">{{game.gameTitle | uppercase}}</p>
+                    <span class="pull-right">*</span>
+                </h4>
+                <div class="clearfix"></div>
+                <p>{{game.gameDescription}}</p>
+            </div>
+            <div>
+                <hr class="divider">
+                <p class="pull-left">Genere:</p>{{game.genere}}
+                <p class="pull-right">{{game.rating}}</p>
+            </div>
+        </div>
+    </div>
+</div>
